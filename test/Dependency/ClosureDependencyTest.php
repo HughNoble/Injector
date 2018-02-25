@@ -12,7 +12,7 @@ class ClosureDependencyTest extends TestCase
     {
         $container = $this->createMock(Container::class);
 
-        $dependency = new ClosureDependency(function($input) use ($container) {
+        $dependency = new ClosureDependency(function ($input) use ($container) {
             $this->assertEquals($container, $input);
 
             return 'expected-output';

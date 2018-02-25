@@ -7,5 +7,4 @@ use RuntimeException;
 
 class NotMappedException extends RuntimeException implements ContainerExceptionInterface
 {
-
 }

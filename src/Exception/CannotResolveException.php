@@ -7,5 +7,4 @@ use RuntimeException;
 
 class CannotResolveException extends RuntimeException implements ContainerExceptionInterface
 {
-
 }

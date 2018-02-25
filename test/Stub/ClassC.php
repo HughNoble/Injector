@@ -6,6 +6,5 @@ class ClassC
 {
     public function __construct($noTypeSpecified)
     {
-
     }
 }
