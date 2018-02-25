@@ -1,3 +1,7 @@
+<p align="center">
+    <a href="https://travis-ci.org/HughNoble/Injector"><img src="https://travis-ci.org/HughNoble/Injector.svg" alt="Build Status"></a>
+</p>
+
 # Injector IoC
 
 An easy to configure and flexible PSR-11 compliant IoC container for PHP.
