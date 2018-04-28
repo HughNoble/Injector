@@ -85,18 +85,14 @@ class DependencyFinderTest extends TestCase
         $this->finder->get($key);
     }
 
-    public function testItThrowsExceptionIfNotMappedAndNotInstantiable(): void
+    public function testItThrowsExceptionIfNotMappedAndAbstract(): void
     {
-        $key = AbstractClassA::class;
+        $this->assertNotInstantiableExceptionIsThrownFinding(AbstractClassA::class);
+    }
 
-        $this->configureMapToNotHaveDependency($key);
-
-        $this->expectException(NotFoundException::class);
-        $this->expectExceptionMessage(
-            sprintf('Class {%s} is not instantiable so must be bound', $key)
-        );
-
-        $this->finder->get($key);
+    public function testItThrowsExceptionIfNotMappedAndInterface(): void
+    {
+        $this->assertNotInstantiableExceptionIsThrownFinding(ClassAInterface::class);
     }
 
     private function makeDependency(): DependencyInterface
@@ -125,5 +121,17 @@ class DependencyFinderTest extends TestCase
             ->method('has')
             ->with($key)
             ->willReturn(false);
+    }
+
+    private function assertNotInstantiableExceptionIsThrownFinding(string $key): void
+    {
+        $this->configureMapToNotHaveDependency($key);
+
+        $this->expectException(NotFoundException::class);
+        $this->expectExceptionMessage(
+            sprintf('Class {%s} is not instantiable so must be bound', $key)
+        );
+
+        $this->finder->get($key);
     }
 }

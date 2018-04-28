@@ -28,7 +28,7 @@ class DependencyFinder
             return $this->map->get($key);
         }
 
-        if (!class_exists($key)) {
+        if (!class_exists($key) && !interface_exists($key)) {
             throw new NotFoundException(
                 sprintf('Key {%s} is not bound and is not a class that exists', $key)
             );
