@@ -2,7 +2,7 @@
 
 namespace Injector\Test\Stub;
 
-class ClassA
+class ClassA implements ClassAInterface
 {
     private $classB;
 
