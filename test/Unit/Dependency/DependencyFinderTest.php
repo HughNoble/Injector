@@ -9,6 +9,7 @@ use Injector\Dependency\DependencyInterface;
 use Injector\Exception\NotFoundException;
 use Injector\Test\Stub\AbstractClassA;
 use Injector\Test\Stub\ClassA;
+use Injector\Test\Stub\ClassAInterface;
 use PHPUnit\Framework\TestCase;
 
 class DependencyFinderTest extends TestCase
