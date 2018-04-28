@@ -69,7 +69,7 @@ class AutoWireDependencyTest extends TestCase
         $this->expectException(CannotResolveException::class);
         $this->expectExceptionMessage(
             sprintf(
-                'Cannot resolve dependancy {$noTypeSpecified} of {%s} because it has no type hint',
+                'Cannot resolve dependency {$noTypeSpecified} of {%s} because it has no type hint',
                 ClassC::class
             )
         );

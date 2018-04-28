@@ -46,7 +46,7 @@ class AutoWireContainerTest extends AbstractContainerTest
     {
         $this->expectException(CannotResolveException::class);
         $this->expectExceptionMessage(
-            'Cannot resolve dependancy {$noTypeSpecified} of {Injector\Test\Stub\ClassC} because it has no type hint'
+            'Cannot resolve dependency {$noTypeSpecified} of {Injector\Test\Stub\ClassC} because it has no type hint'
         );
 
         $this->container->get(ClassC::class);
