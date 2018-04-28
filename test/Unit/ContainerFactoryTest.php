@@ -1,6 +1,6 @@
 <?php
 
-namespace Injector\Test;
+namespace Injector\Test\Unit;
 
 use Injector\Binding\BindingMap;
 use Injector\Container;

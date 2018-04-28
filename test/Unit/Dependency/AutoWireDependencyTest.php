@@ -1,6 +1,6 @@
 <?php
 
-namespace Injector\Test\Dependency;
+namespace Injector\Test\Unit\Dependency;
 
 use Injector\Container;
 use Injector\Dependency\AutoWireDependency;
