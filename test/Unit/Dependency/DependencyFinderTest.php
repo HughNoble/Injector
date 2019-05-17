@@ -1,6 +1,6 @@
 <?php
 
-namespace Injector\Test\Dependency;
+namespace Injector\Test\Unit\Dependency;
 
 use Injector\Binding\BindingMap;
 use Injector\Dependency\AutoWireDependency;
@@ -9,6 +9,7 @@ use Injector\Dependency\DependencyInterface;
 use Injector\Exception\NotFoundException;
 use Injector\Test\Stub\AbstractClassA;
 use Injector\Test\Stub\ClassA;
+use Injector\Test\Stub\ClassAInterface;
 use PHPUnit\Framework\TestCase;
 
 class DependencyFinderTest extends TestCase
@@ -85,18 +86,14 @@ class DependencyFinderTest extends TestCase
         $this->finder->get($key);
     }
 
-    public function testItThrowsExceptionIfNotMappedAndNotInstantiable(): void
+    public function testItThrowsExceptionIfNotMappedAndAbstract(): void
     {
-        $key = AbstractClassA::class;
+        $this->assertNotInstantiableExceptionIsThrownFinding(AbstractClassA::class);
+    }
 
-        $this->configureMapToNotHaveDependency($key);
-
-        $this->expectException(NotFoundException::class);
-        $this->expectExceptionMessage(
-            sprintf('Class {%s} is not instantiable so must be bound', $key)
-        );
-
-        $this->finder->get($key);
+    public function testItThrowsExceptionIfNotMappedAndInterface(): void
+    {
+        $this->assertNotInstantiableExceptionIsThrownFinding(ClassAInterface::class);
     }
 
     private function makeDependency(): DependencyInterface
@@ -125,5 +122,17 @@ class DependencyFinderTest extends TestCase
             ->method('has')
             ->with($key)
             ->willReturn(false);
+    }
+
+    private function assertNotInstantiableExceptionIsThrownFinding(string $key): void
+    {
+        $this->configureMapToNotHaveDependency($key);
+
+        $this->expectException(NotFoundException::class);
+        $this->expectExceptionMessage(
+            sprintf('Class {%s} is not instantiable so must be bound', $key)
+        );
+
+        $this->finder->get($key);
     }
 }

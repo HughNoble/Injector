@@ -1,6 +1,6 @@
 <?php
 
-namespace Injector\Test\Dependency;
+namespace Injector\Test\Unit\Dependency;
 
 use Injector\Container;
 use Injector\Dependency\AutoWireDependency;
@@ -69,7 +69,7 @@ class AutoWireDependencyTest extends TestCase
         $this->expectException(CannotResolveException::class);
         $this->expectExceptionMessage(
             sprintf(
-                'Cannot resolve dependancy {$noTypeSpecified} of {%s} because it has no type hint',
+                'Cannot resolve dependency {$noTypeSpecified} of {%s} because it has no type hint',
                 ClassC::class
             )
         );

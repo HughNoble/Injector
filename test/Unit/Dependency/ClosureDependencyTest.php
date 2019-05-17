@@ -1,6 +1,6 @@
 <?php
 
-namespace Injector\Test;
+namespace Injector\Test\Unit\Dependency;
 
 use Injector\Container;
 use Injector\Dependency\ClosureDependency;

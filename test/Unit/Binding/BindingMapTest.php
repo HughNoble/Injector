@@ -1,6 +1,6 @@
 <?php
 
-namespace Injector\Test\Binding;
+namespace Injector\Test\Unit\Binding;
 
 use Injector\Binding\BindingMap;
 use Injector\Dependency\DependencyInterface;

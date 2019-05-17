@@ -68,7 +68,7 @@ class AutoWireDependency implements DependencyInterface
         if (!$class) {
             throw new CannotResolveException(
                 sprintf(
-                    'Cannot resolve dependancy {$%s} of {%s} because it has no type hint',
+                    'Cannot resolve dependency {$%s} of {%s} because it has no type hint',
                     $parameter->getName(),
                     $this->getClassName()
                 )
